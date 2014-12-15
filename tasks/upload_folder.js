@@ -8,13 +8,21 @@
 
 'use strict';
 
+
 module.exports = function(grunt) {
-
-  // Please see the Grunt documentation for more information regarding task
-  // creation: http://gruntjs.com/creating-tasks
-
-  grunt.registerMultiTask('upload_folder', 'plugin that you can use upload-folder app', function() {
-    // Merge task-specific and/or target-specific options with these defaults.
+    
+    
+    function Runner(){
+    
+    
+// load orginal module
+var upload = require('upload-folder');
+    
+   
+        
+        
+        
+        // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
       punctuation: '.',
       separator: ', '
@@ -44,7 +52,14 @@ module.exports = function(grunt) {
 
       // Print a success message.
       grunt.log.writeln('File "' + f.dest + '" created.');
+      
+      grunt.read(upload);
+      
+      grunt.log.writeln(upload.module);
+      grunt.log.writeln(upload.kala);
     });
-  });
-
+ 
+  }
+    
+grunt.registerMultiTask('upload_folder', 'plugin that you can use upload-folder app', Runner);
 };
